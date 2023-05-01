@@ -6,7 +6,24 @@ clients: # Add other client settings https://auth0.com/docs/api/management/v2#!/
      alg: "RS256"
     callbacks:
       - "http://localhost:37500/callback"
-      - "https://*.preview.app.github.dev/callback"
+      - "https://##CODESPACE_NAME##.preview.app.github.dev/callback"
     allowed_logout_urls:
       - "http://localhost:37500"
-      - "https://*.preview.app.github.dev"
+      - "https://##CODESPACE_NAME##.preview.app.github.dev"
+  -
+    name: "Lab: Web App2"
+    app_type: "regular_web"
+    jwt_configuration:
+     alg: "RS256"
+    callbacks:
+      - "http://localhost:38500/callback"
+      - "https://##CODESPACE_NAME##.preview.app.github.dev/callback"
+    allowed_logout_urls:
+      - "http://localhost:38500"
+      - "https://##CODESPACE_NAME##.preview.app.github.dev"
+
+clientGrants:
+  - client_id: "Lab: Web App"
+    audience: https://##AUTH0_DOMAIN##/api/v2/
+    scope:
+      - read:users
